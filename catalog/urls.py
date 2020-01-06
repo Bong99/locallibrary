@@ -12,11 +12,17 @@ Class-based views
 Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
+
+    from catalog.views import index
 """
-from django.contrib import admin
+""" from django.contrib import admin """
+
+
+# Use include() to add paths from the catalog application
+from django.urls import include
 from django.urls import path
-from catalog.views import index
+from . import views
 
 urlpatterns = [
-    path('', index),
+    path('', views.index, name='index'),
 ]
